@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+
+/* ===== CSS รวมในไฟล์เดียว ===== */
+body{
+  margin:0;
+  font-family:Arial;
+}
+
+.sidebar{
+  width:260px;
+  background:#0f172a;
+  height:100vh;
+  padding-top:20px;
+  position:fixed;
+}
+
+.sidebar a{
+  display:block;
+  color:white;
+  padding:14px 20px;
+  text-decoration:none;
+  cursor:pointer;
+}
+
+.sidebar a:hover{
+  background:#1e293b;
+}
+
+.content{
+  margin-left:270px;
+  padding:20px;
+}
+
+.banner{
+  width:100%;
+  max-height:420px;
+  object-fit:cover;
+  border-radius:16px;
+  margin-bottom:15px;
+}
+
+.game-img{
+  width:220px;
+  margin:10px;
+  cursor:pointer;
+  border-radius:12px;
+}
+
+</style>
+
+<script>
+// ===== JavaScript รวมในไฟล์เดียว =====
+
+function go(page){
+
+  const box = document.getElementById("main");
+
+  if(page=="home"){
+    box.innerHTML=`
+      <img src="aru1.jpg" class="banner">
+      <h2>Welcome to Pachara Game</h2>
+      <กล้าน้อยร้อยล้าน</p>
+    `;
+  }
+
+  if(page=="characters"){
+    box.innerHTML=`
+      <h2>Characters</h2>
+      <img src="aru1.jpg" class="game-img" onclick="preview('aru1.jpg')">
+      <img src="aru1.jpg" class="game-img" onclick="preview('aru1.jpg')">
+
+      <h3>Preview</h3>
+      <img id="previewBox" src="aru1.jpg" class="banner">
+    `;
+  }
+
+  if(page=="items"){
+    box.innerHTML=`
+      <h2>Items</h2>
+      <p>คุณสมบัติการแตก</p>
+
+      <img src="aru1.jpg" class="game-img" onclick="preview('aru1.jpg')">
+
+      <h3>Preview</h3>
+      <img id="previewBox" src="aru1.jpg" class="banner">
+    `;
+  }
+
+  if(page=="about"){
+    box.innerHTML=`
+      <h2>About</h2>
+      <p>จัดทำโดย Pachara</p>
+      <img src="aru1.jpg" class="banner">
+    `;
+  }
+
+  if(page=="contact"){
+    box.innerHTML=`
+      <h2>Contact</h2>
+      <p>สอนคลังแจกเด็ด</p>
+      <img src="aru1.jpg" class="banner">
+    `;
+  }
+}
+
+/* ระบบ preview รูป */
+function preview(file){
+  const p = document.getElementById("previewBox");
+  if(p){
+     p.src = file;
+  }
+}
+
+</script>
+
+</head>
+
+<body onload="go('home')">
+
+<!-- ===== เมนูซ้ายกดใช้ได้จริง ===== -->
+<div class="sidebar">
+  <a onclick="go('home')">🏠 Home</a>
+  <a onclick="go('characters')">👤 Characters</a>
+  <a onclick="go('items')">🎁 Items</a>
+  <a onclick="go('about')">📘 About</a>
+  <a onclick="go('contact')">📞 Contact</a>
+</div>
+
+<!-- ===== พื้นที่เปลี่ยนหน้า ===== -->
+<div class="content">
+  <div id="main"></div>
+</div>
+
+</body>
+</html>
