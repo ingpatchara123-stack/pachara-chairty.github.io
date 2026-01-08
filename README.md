@@ -1,2 +1,12 @@
 index.html
 aru1.jpg
+index.html
+slot_03
+index.html
+slot_05
+index.html
+aru4
+index.html
+aru2
+index.html
+aru3
